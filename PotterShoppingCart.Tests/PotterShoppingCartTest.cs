@@ -101,6 +101,24 @@ namespace PotterShoppingCart.Tests
             var expected = 375m;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_Buy_2_Different_Volumes_And_2_Copies_Of_Same_Volume_Will_Cost_370()
+        {
+            List<Book> Basket = new List<Book>
+            {
+                new Book {Volume = 1, Price = 100m},
+                new Book {Volume = 1, Price = 100m},
+                new Book {Volume = 2, Price = 100m},
+                new Book {Volume = 3, Price = 100m},
+            };
+
+            var target = new Cashier();
+            var actual = target.GetTotalCostOf(Basket);
+
+            var expected = 370m;
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     public class Cashier

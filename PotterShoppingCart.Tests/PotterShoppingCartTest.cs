@@ -58,7 +58,7 @@ namespace PotterShoppingCart.Tests
             {
                 return basket.Sum(x => x.Price) * (100 - 5) / 100;
             }
-            return basket.Sum(x => x.Price);
+            return basket.Sum(x => x.Price) * (100 - 0) / 100;
         }
     }
 

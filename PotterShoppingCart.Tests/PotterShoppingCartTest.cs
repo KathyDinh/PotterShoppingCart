@@ -76,6 +76,10 @@ namespace PotterShoppingCart.Tests
             {
                 discount = 5;
             }
+            else if (distinctVolumes.Count() == 3)
+            {
+                discount = 10;
+            }
             else
             {
                 discount = 0;

@@ -103,7 +103,7 @@ namespace PotterShoppingCart.Tests
         }
 
         [TestMethod]
-        public void Test_Buy_2_Different_Volumes_And_2_Copies_Of_Same_Volume_Will_Cost_370()
+        public void Test_Buy_2_Different_Volumes_And_2_Copies_Of_Another_Volume_Will_Cost_370()
         {
             List<Book> Basket = new List<Book>
             {

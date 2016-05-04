@@ -72,11 +72,12 @@ namespace PotterShoppingCart.Tests
         {
             var distinctVolumes = basket.Select(x => x.Volume).Distinct();
             int discount;
-            if (distinctVolumes.Count() == 2)
+            var differentVolumeCount = distinctVolumes.Count();
+            if (differentVolumeCount == 2)
             {
                 discount = 5;
             }
-            else if (distinctVolumes.Count() == 3)
+            else if (differentVolumeCount == 3)
             {
                 discount = 10;
             }

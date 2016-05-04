@@ -71,8 +71,14 @@ namespace PotterShoppingCart.Tests
         public decimal GetTotalCostOf(List<Book> basket)
         {
             var distinctVolumes = basket.Select(x => x.Volume).Distinct();
-            int discount;
             var differentVolumeCount = distinctVolumes.Count();
+            var discount = GetDiscount(differentVolumeCount);
+            return basket.Sum(x => x.Price) * (100 - discount) / 100;
+        }
+
+        private int GetDiscount(int differentVolumeCount)
+        {
+            int discount;
             if (differentVolumeCount == 2)
             {
                 discount = 5;
@@ -85,7 +91,7 @@ namespace PotterShoppingCart.Tests
             {
                 discount = 0;
             }
-            return basket.Sum(x => x.Price) * (100 - discount) / 100;
+            return discount;
         }
     }
 

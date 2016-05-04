@@ -128,6 +128,10 @@ namespace PotterShoppingCart.Tests
             {
                 discount = 20;
             }
+            else if (differentVolumeCount == 5)
+            {
+                discount = 25;
+            }
             else
             {
                 discount = 0;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PotterShoppingCart.Tests
@@ -28,7 +29,7 @@ namespace PotterShoppingCart.Tests
             var target = new Cashier();
             var actual = target.GetTotalCostOf(Basket);
 
-            var expected = 190;
+            var expected = 190m;
             Assert.AreEqual(expected, actual);
         }
     }
@@ -37,7 +38,7 @@ namespace PotterShoppingCart.Tests
     {
         public decimal GetTotalCostOf(List<Book> basket)
         {
-            throw new NotImplementedException();
+            return basket.Sum(x => x.Price)*(100 - 5) / 100;
         }
     }
 

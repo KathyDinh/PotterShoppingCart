@@ -54,11 +54,14 @@ namespace PotterShoppingCart.Tests
         public decimal GetTotalCostOf(List<Book> basket)
         {
             var distinctVolumes = basket.Select(x => x.Volume).Distinct();
+            int discount;
             if (distinctVolumes.Count() == 2)
             {
-                return basket.Sum(x => x.Price) * (100 - 5) / 100;
+                discount = 5;
+                return basket.Sum(x => x.Price) * (100 - discount) / 100;
             }
-            return basket.Sum(x => x.Price) * (100 - 0) / 100;
+            discount = 0;
+            return basket.Sum(x => x.Price) * (100 - discount) / 100;
         }
     }
 

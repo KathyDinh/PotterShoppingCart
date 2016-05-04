@@ -58,9 +58,11 @@ namespace PotterShoppingCart.Tests
             if (distinctVolumes.Count() == 2)
             {
                 discount = 5;
-                return basket.Sum(x => x.Price) * (100 - discount) / 100;
             }
-            discount = 0;
+            else
+            {
+                discount = 0;
+            }
             return basket.Sum(x => x.Price) * (100 - discount) / 100;
         }
     }

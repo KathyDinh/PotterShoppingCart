@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PotterShoppingCart.Tests
 {
@@ -36,7 +35,6 @@ namespace PotterShoppingCart.Tests
         [TestMethod]
         public void Test_Buy_2_Copies_Of_Same_Volume_Will_Cost_200()
         {
-
             List<Book> Basket = new List<Book>
             {
                 new Book {Volume = 3, Price = 100m},
@@ -55,7 +53,12 @@ namespace PotterShoppingCart.Tests
     {
         public decimal GetTotalCostOf(List<Book> basket)
         {
-            return basket.Sum(x => x.Price)*(100 - 5) / 100;
+            var distinctVolumes = basket.Select(x => x.Volume).Distinct();
+            if (distinctVolumes.Count() == 2)
+            {
+                return basket.Sum(x => x.Price) * (100 - 5) / 100;
+            }
+            return basket.Sum(x => x.Price);
         }
     }
 
